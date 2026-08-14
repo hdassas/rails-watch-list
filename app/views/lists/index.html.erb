@@ -1,0 +1,14 @@
+<div class="d-flex justify-content-between align-items-center mb-4">
+  <h1>My lists</h1>
+
+  <%= link_to "New list", new_list_path, class: "btn btn-primary" %>
+</div>
+
+<% @lists.each do |list| %>
+  <p>
+    <%= link_to list.name, list_path(list), class: "text-decoration-none fs-4" %>
+  </p>
+  <% if list.photo.attached? %>
+    <%= image_tag list.photo, width: 150 %>
+  <% end %>
+<% end %>
